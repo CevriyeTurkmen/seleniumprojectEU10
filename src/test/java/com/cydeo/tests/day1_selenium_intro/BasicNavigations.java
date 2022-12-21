@@ -9,6 +9,7 @@ public class BasicNavigations {
 
         WebDriverManager.chromedriver().setup();
         WebDriver driver=new ChromeDriver();
+        driver.manage().window().maximize();
         driver.get("https://www.tesla.com");
 
         driver.navigate().back();
@@ -20,6 +21,9 @@ public class BasicNavigations {
         driver.navigate().refresh();
         driver.navigate().to("https://www.google.com.tr");
         System.out.println("driver.getTitle() = " + driver.getTitle());
+        String currentURL= driver.getCurrentUrl();
+        System.out.println(currentURL);
+        driver.close();
 
 
     }
