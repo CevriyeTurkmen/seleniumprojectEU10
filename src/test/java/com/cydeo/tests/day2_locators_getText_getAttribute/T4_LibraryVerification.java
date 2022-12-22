@@ -17,6 +17,8 @@ public class T4_LibraryVerification {
         Username.sendKeys("abcbjebfkje");
         WebElement Password= driver.findElement(By.id("inputPassword"));
         Password.sendKeys("vdvaFHOegkm");
+        WebElement signIn= driver.findElement(By.tagName("button"));
+        signIn.click();
 
 
 
