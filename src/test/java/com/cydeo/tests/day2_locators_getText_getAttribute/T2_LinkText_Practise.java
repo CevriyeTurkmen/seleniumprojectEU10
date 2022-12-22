@@ -16,5 +16,12 @@ public class T2_LinkText_Practise {
 WebElement abTest= driver.findElement(By.linkText("A/B Testing"));
 abTest.click();
 
+String expectedTitle="No A/B Test";
+String actualTitle=driver.getTitle();
+if (expectedTitle.equals(actualTitle)){
+    System.out.println("Passed");
+}else {
+    System.out.println("Failed");}
+
     }
 }
