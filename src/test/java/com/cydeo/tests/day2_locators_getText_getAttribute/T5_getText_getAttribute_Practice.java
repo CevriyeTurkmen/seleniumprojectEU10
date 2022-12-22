@@ -21,6 +21,13 @@ WebElement header= driver.findElement(By.tagName("h2"));
             System.out.println("Passed");
         }else {
             System.out.println("Failed");}
+        WebElement firstnameInput= driver.findElement(By.name("firstname"));
+        String expectedPlaceHolder="first name";
+        String actualPlaceHolder= firstnameInput.getAttribute("placeholder");
+        if (expectedPlaceHolder.equals(actualPlaceHolder)){
+            System.out.println("Passed");
+        }else {
+            System.out.println("Failed");}
 
 
 
