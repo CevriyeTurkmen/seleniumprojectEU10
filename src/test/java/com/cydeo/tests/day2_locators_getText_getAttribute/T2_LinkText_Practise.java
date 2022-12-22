@@ -23,5 +23,14 @@ if (expectedTitle.equals(actualTitle)){
 }else {
     System.out.println("Failed");}
 
+driver.navigate().back();
+String expectedTitle2="Practice";
+String actualTitle2=driver.getTitle();
+
+if (expectedTitle2.equals(actualTitle2)){
+    System.out.println("passed");
+}else {
+    System.out.println("failed");}
+
     }
 }
