@@ -18,11 +18,23 @@ public class T2_getText_getAttribute {
         }else {
             System.out.println("Label verification Failed!");}
 
+        WebElement ForgotPassword = driver.findElement(By.className("login-link-forgot-pass"));
+        String expectedLink="Forgot your password? ";
+        String actualLink=ForgotPassword.getText();
 
+        if (expectedLink.equals(actualLink)){
+            System.out.println("Forgot Password verification Passed!");
+        }else {
+            System.out.println("actualLink = " + actualLink);
+            System.out.println("expectedLink = " + expectedLink);
+            System.out.println("Forgot Password Failed!");}
 
+        String expectedHref="forgot_password=yes ";
+        String actualHref=ForgotPassword.getAttribute("href");
 
-
-
+        if (actualHref.contains(expectedHref)){
+            System.out.println("Href Attribute Verification Passed!");
+        }else { System.out.println("Href Attribute Verification Passed!");}
 
 
     }
