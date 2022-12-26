@@ -10,16 +10,16 @@ public class T1_locators_getText {
     public static void main(String[] args) {
 
         WebDriverManager.chromedriver().setup();
-        WebDriver driver=new ChromeDriver();
+        WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://login1.nextbasecrm.com/  ");
-      //  driver.findElement(By.name("USER_LOGIN")).sendKeys("Incorrect");
-        WebElement inputUserName=driver.findElement(By.name("USER_LOGIN"));
+        //  driver.findElement(By.name("USER_LOGIN")).sendKeys("Incorrect");
+        WebElement inputUserName = driver.findElement(By.name("USER_LOGIN"));
         inputUserName.sendKeys("Incorrect");
-
-
-
-
+        WebElement inputPassword = driver.findElement(By.name("USER_PASSWORD"));
+        inputPassword.sendKeys("incorrect");
+        WebElement loginPage=  driver.findElement(By.className("login-btn"));
+        loginPage.click();
 
 
     }
