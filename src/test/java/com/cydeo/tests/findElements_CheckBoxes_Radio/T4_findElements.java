@@ -18,7 +18,8 @@ public class T4_findElements {
         List<WebElement> allLinks = driver.findElements(By.tagName("a"));
         System.out.println("allLinks.size() = " + allLinks.size());
         for (WebElement each : allLinks) {
-            System.out.println("Test of links "+ each.getText());
+            System.out.println("Text of links "+ each.getText());
+            System.out.println("HREF value "+ each.getAttribute("href"));
         }
 
 
