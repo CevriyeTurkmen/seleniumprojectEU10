@@ -29,8 +29,8 @@ public class T4_IframePractices {
 
         WebElement contentText= driver.findElement(By.xpath("//p"));
         Assert.assertTrue(contentText.isDisplayed());
-        driver.switchTo().parentFrame();
 
+        driver.switchTo().parentFrame();
         WebElement headerText= driver.findElement(By.xpath("//h3"));
         Assert.assertTrue(headerText.isDisplayed());
 
