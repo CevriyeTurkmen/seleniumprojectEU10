@@ -25,9 +25,9 @@ public class T8_MultipleSelect {
         for (WebElement each : allOptions) {
             each.click();
 
-            System.out.println("all selected values = " + each.getText().toString());
+            System.out.println("all selected values = " + each.getText());
         }
-
+        multiElement.deselectAll();
     }
 
 }
