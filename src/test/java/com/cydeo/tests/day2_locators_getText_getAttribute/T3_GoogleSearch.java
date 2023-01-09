@@ -12,7 +12,7 @@ public class T3_GoogleSearch {
         WebDriverManager.chromedriver().setup();
         WebDriver driver=new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://google.com");
+        driver.get("https://www.google.com");
         WebElement agreeButton= driver.findElement(By.id("L2AGLb"));
         agreeButton.click();
         WebElement googleSearchBox=driver.findElement(By.name("q"));
