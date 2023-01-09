@@ -29,7 +29,17 @@ public class T3_CRM_Login {
 
         CRM_Utilities.crm_login(driver);
 
+    }
 
+    @Test
+    public void Crm_Login_Test2() {
+
+        driver.get("https://login1.nextbasecrm.com/ ");
+
+        CRM_Utilities.crm_login(driver,"helpdesk1@cybertekschool.com","UserUser");
+
+    }
+}
 /*
         WebElement inputName = driver.findElement(By.xpath("//input[@name='USER_LOGIN']"));
         inputName.sendKeys("helpdesk1@cybertekschool.com");
@@ -46,7 +56,7 @@ public class T3_CRM_Login {
 
 
 
-    }
 
 
-}
+
+
