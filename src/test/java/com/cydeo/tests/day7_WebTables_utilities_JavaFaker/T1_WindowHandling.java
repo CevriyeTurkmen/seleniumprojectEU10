@@ -1,13 +1,12 @@
 package com.cydeo.tests.day7_WebTables_utilities_JavaFaker;
 
+import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class T1_WindowHandling {
@@ -31,6 +30,20 @@ public class T1_WindowHandling {
         ((JavascriptExecutor) driver).executeScript("window.open('https://etsy.com','_blank');");
         ((JavascriptExecutor) driver).executeScript("window.open('https://facebook.com','_blank');");
 
+        BrowserUtils.switchWindowAndVerify(driver, "etsy", "Etsy");
+
+
+
+
+
+
+
+
+
+
+
+
+/*
         Set<String> allWindowsHandles = driver.getWindowHandles();
 
         for (String each : allWindowsHandles) {
@@ -44,12 +57,17 @@ public class T1_WindowHandling {
         }
 
             String actualTitle= driver.getTitle();
-            String expectedinTitle="etsy";
-            Assert.assertTrue(actualTitle.contains(expectedinTitle));
+            String expectedinTitle="Etsy";
+        WebElement accept=driver.findElement(By.xpath("//button[@class='wt-btn wt-btn--filled wt-mb-xs-0']"));
+        accept.click();
+
+           Assert.assertTrue(actualTitle.contains(expectedinTitle));
         }
+
+ */
 
 
     }
-
+}
 
 
