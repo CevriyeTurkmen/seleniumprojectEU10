@@ -34,9 +34,9 @@ public class T4_ConfigPractice {
         WebElement googleSearchBox= driver.findElement(By.xpath("//input[@name='q']"));
         WebElement acceptbutton= driver.findElement(By.xpath("//div[.='Accept all']"));
         acceptbutton.click();
-        googleSearchBox.sendKeys("apple"+ Keys.ENTER);
+        googleSearchBox.sendKeys(ConfigurationReader.getProperty("searchValue")+ Keys.ENTER);
 
-        String expectedTitle="apple - Google Search";
+        String expectedTitle=ConfigurationReader.getProperty("searchValue") +" - Google Search";
         String actualTitle= driver.getTitle();
 
         Assert.assertEquals(actualTitle,expectedTitle);
