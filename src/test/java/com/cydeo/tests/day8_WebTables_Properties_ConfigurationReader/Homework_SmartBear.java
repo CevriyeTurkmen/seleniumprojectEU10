@@ -1,6 +1,7 @@
 package com.cydeo.tests.day8_WebTables_Properties_ConfigurationReader;
 
 import com.cydeo.utilities.WebDriverFactory;
+import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -43,7 +44,7 @@ public class Homework_SmartBear {
 
     }
 
-    @Test
+    @Test(priority = 1)
     public void Test2_SmartBear_OrderPlacing() {
 
         driver.get("http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx ");
@@ -62,7 +63,40 @@ public class Homework_SmartBear {
         WebElement calculate = driver.findElement(By.xpath("//input[@value='Calculate']"));
         calculate.click();
 
-        //to be continue after "Java Faker"
+        WebElement name = driver.findElement(By.xpath("//input[@id='ctl00_MainContent_fmwOrder_txtName']"));
+        Faker faker = new Faker();
+        name.sendKeys(faker.name().fullName());
+
+        WebElement street = driver.findElement(By.xpath("//input[@id='ctl00_MainContent_fmwOrder_txtName']/following::input[1]"));
+        street.sendKeys(faker.address().streetName());
+
+        WebElement City = driver.findElement(By.xpath("//input[@id='ctl00_MainContent_fmwOrder_txtName']/following::input[2]"));
+        City.sendKeys(faker.address().city());
+
+        WebElement State = driver.findElement(By.xpath("//input[@id='ctl00_MainContent_fmwOrder_txtName']/following::input[3]"));
+        State.sendKeys(faker.address().state());
+
+        WebElement Zip = driver.findElement(By.xpath("//input[@id='ctl00_MainContent_fmwOrder_txtName']/following::input[4]"));
+        Zip.sendKeys(faker.address().zipCode());
+
+        WebElement VisaButton = driver.findElement(By.xpath("//input[@value='Visa']"));
+        VisaButton.click();
+
+        WebElement CardNumber = driver.findElement(By.xpath("//input[@id='ctl00_MainContent_fmwOrder_TextBox6']"));
+        CardNumber.sendKeys(faker.finance().creditCard().replaceAll("-",""));
+
+        WebElement ExpireDate= driver.findElement(By.xpath("//input[@id='ctl00_MainContent_fmwOrder_TextBox6']/following::input[1]"));
+        ExpireDate.sendKeys("12/22");
+
+        WebElement Process = driver.findElement(By.xpath("//a[@id='ctl00_MainContent_fmwOrder_InsertButton']"));
+        Process.click();
+
+        WebElement Message= driver.findElement(By.xpath("//strong[.='\n" +
+                "                    New order has been successfully added.\n" +
+                "                ']"));
+
+        System.out.println("Message.isDisplayed() = " + Message.isDisplayed());
+
 
     }
 
