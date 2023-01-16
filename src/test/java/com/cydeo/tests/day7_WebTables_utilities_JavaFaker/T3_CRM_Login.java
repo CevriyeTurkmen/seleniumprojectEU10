@@ -1,26 +1,10 @@
 package com.cydeo.tests.day7_WebTables_utilities_JavaFaker;
 
+import com.cydeo.tests.base.TestBase;
 import com.cydeo.utilities.CRM_Utilities;
-import com.cydeo.utilities.WebDriverFactory;
-import org.openqa.selenium.WebDriver;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.concurrent.TimeUnit;
-
-public class T3_CRM_Login {
-
-    WebDriver driver;
-
-    @BeforeMethod
-
-    public void SetUpMethod() {
-
-        driver = WebDriverFactory.getDriver("chrome");
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-    }
+public class T3_CRM_Login extends TestBase {
 
 
     @Test
