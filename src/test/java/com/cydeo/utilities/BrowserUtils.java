@@ -1,9 +1,13 @@
 package com.cydeo.utilities;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 public class BrowserUtils {
 
@@ -17,7 +21,7 @@ public class BrowserUtils {
 
     }
 
-    public static void switchWindowAndVerify(WebDriver driver, String expectedInURL, String expectedinTitle ){
+    public static void switchWindowAndVerify(WebDriver driver, String expectedInURL, String expectedinTitle) {
 
 
         Set<String> allWindowsHandles = driver.getWindowHandles();
@@ -32,16 +36,20 @@ public class BrowserUtils {
             }
         }
 
-        String actualTitle= driver.getTitle();
+        String actualTitle = driver.getTitle();
 
         Assert.assertTrue(actualTitle.contains(expectedinTitle));
     }
 
-public static void verifyTitle(WebDriver driver,String expectedTitle){
-        Assert.assertEquals(driver.getTitle(),expectedTitle);
-}
+    public static void verifyTitle(WebDriver driver, String expectedTitle) {
+        Assert.assertEquals(driver.getTitle(), expectedTitle);
+    }
 
-
+    public static void waitForInvisibilityOf(WebElement webElement){
+        Driver.getDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+        wait.until(ExpectedConditions.invisibilityOf(webElement));
+    }
 
 
 }
